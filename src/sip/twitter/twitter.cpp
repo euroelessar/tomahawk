@@ -770,6 +770,7 @@ TwitterPlugin::profilePicReply()
     image.loadFromData( rawData, "PNG" );
     QPixmap pixmap = QPixmap::fromImage( image );
     m_cachedAvatars[screenName] = pixmap;
+    qDebug() << Q_FUNC_INFO << " returning a pixmap for " << friendlyName;
     emit avatarReceived( friendlyName, QPixmap::fromImage( image ) );
 }
 

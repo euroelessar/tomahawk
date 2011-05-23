@@ -728,6 +728,7 @@ Servent::remoteIODeviceFactory( const result_ptr& result )
     QStringList parts = result->url().mid( QString( "servent://" ).length() ).split( "\t" );
     const QString sourceName = parts.at( 0 );
     const QString fileId = parts.at( 1 );
+    qDebug() << Q_FUNC_INFO << " adding source pointer with source name " << sourceName << " from url " << result->url();
     source_ptr s = SourceList::instance()->get( sourceName );
     if ( s.isNull() || !s->controlConnection() )
         return sp;

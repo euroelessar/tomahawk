@@ -172,15 +172,20 @@ SourceList::get( const QString& username, const QString& friendlyName )
 {
     QMutexLocker lock( &m_mut );
 
+    qDebug() << Q_FUNC_INFO << " username = " << username << ", friendlyName = " << friendlyName;
     source_ptr source;
     if ( !m_sources.contains( username ) )
     {
+        qDebug() << Q_FUNC_INFO << " m_sources does not contain username, adding source with friendlyName " << friendlyName;
         source = source_ptr( new Source( -1, username ) );
         source->setFriendlyName( friendlyName );
         add( source );
     }
     else
+    {
         source = m_sources.value( username );
+        qDebug() << Q_FUNC_INFO << " m_source contains username, returning source with friendlyName " << source->friendlyName();
+    }
 
     return source;
 }

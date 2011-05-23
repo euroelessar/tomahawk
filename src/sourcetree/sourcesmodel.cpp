@@ -301,6 +301,9 @@ SourcesModel::onSourcesAdded( const QList<source_ptr>& sources )
 void
 SourcesModel::onSourceAdded( const source_ptr& source )
 {
+    qDebug() << Q_FUNC_INFO << " adding source with friendlyName " << source->friendlyName();
+    qDebug() << Q_FUNC_INFO << " adding source with userName " << source->userName();
+    qDebug() << Q_FUNC_INFO << " adding source with id " << source->id();
     appendItem( source );
 }
 

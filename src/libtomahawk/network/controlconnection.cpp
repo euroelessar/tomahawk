@@ -94,6 +94,8 @@ ControlConnection::setup()
     else
         friendlyName = name();
 
+    qDebug() << Q_FUNC_INFO << " friendlyName = " << friendlyName << ", name = " << name();
+    
     // setup source and remote collection for this peer
     m_source = SourceList::instance()->get( id(), friendlyName );
     m_source->setControlConnection( this );
