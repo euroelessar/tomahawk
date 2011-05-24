@@ -184,6 +184,7 @@ SourceList::get( const QString& username, const QString& friendlyName )
     else
     {
         source = m_sources.value( username );
+        source->setFriendlyName( friendlyName );
         qDebug() << Q_FUNC_INFO << " m_source contains username, returning source with friendlyName " << source->friendlyName();
     }
 
